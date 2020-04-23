@@ -1,7 +1,7 @@
 pipeline {
     environment {
         // This registry is important for removing the image after the tests
-        registry = "yourName/nodeapp"
+        registry = "yourname/nodeapp"
     }
     agent any
     stages {
@@ -24,7 +24,7 @@ pipeline {
                                 sh "npm test"
                             }
                         }
-                        
+
                     } finally {
                         // Removing the docker image
                         sh "docker rmi $registry:$BUILD_NUMBER"
