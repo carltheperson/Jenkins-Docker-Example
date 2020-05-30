@@ -21,11 +21,3 @@ RUN apt-get install -y docker-ce
 RUN usermod -a -G docker jenkins
 
 USER jenkins
-
-docker run -d -p 8080:8080 \ 
--v /var/run/docker.sock:/var/run/docker.sock \
- -v /var/jenkins_home:/var/jenkins_home \ # Optional
- --name Jenkins_Docker gustavoapolinario/jenkins-docker
-
-# One line:
-docker run -d -p 8080:8080 -v /var/run/docker.sock:/var/run/docker.sock -v /var/jenkins_home:/var/jenkins_home --name Jenkins_Docker gustavoapolinario/jenkins-docker
